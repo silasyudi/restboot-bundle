@@ -1,0 +1,24 @@
+parameters:
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  SymfonyBoot\SymfonyBootBundle\:
+    resource: '../../../src/'
+    exclude: '../../../src/**/{Annotation,Exception,ValueObject}/*'
+
+  SymfonyBoot\SymfonyBootBundle\Serializer\DefaultFormat:
+    arguments:
+      - 'json'
+
+  SymfonyBoot\SymfonyBootBundle\Rest\Converter\BodyConverter:
+    tags: [ 'symfonyboot' ]
+
+  SymfonyBoot\SymfonyBootBundle\Rest\Converter\QueryConverter:
+    tags: [ 'symfonyboot' ]
+
+  SymfonyBoot\SymfonyBootBundle\EventSubscriber\RestSubscriber:
+    arguments: [ !tagged_iterator 'symfonyboot' ]
+    public: true
