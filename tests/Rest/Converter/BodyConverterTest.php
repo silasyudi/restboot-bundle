@@ -4,7 +4,6 @@ namespace Tests\Rest\Converter;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Serializer\SerializerInterface;
 use SymfonyBoot\SymfonyBootBundle\Rest\Converter\BodyConverter;
 use SymfonyBoot\SymfonyBootBundle\Rest\ValueObject\ConverterContext;
 use SymfonyBoot\SymfonyBootBundle\Serializer\DefaultFormat;

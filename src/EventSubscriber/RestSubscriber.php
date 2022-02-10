@@ -70,7 +70,7 @@ class RestSubscriber implements EventSubscriberInterface
             throw new MoreThanOneRestParameterException('The method has more than one type of rest parameter.');
         }
 
-        return $restAnnotations[0] ?? null;
+        return reset($restAnnotations) ?: null;
     }
 
     private function getTypeParameter(ReflectionMethod $method, string $name): string

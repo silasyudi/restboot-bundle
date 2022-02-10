@@ -25,6 +25,7 @@ class RestSubscriberBodyTest extends RestSubscriberTest
         return [
             [new ControllerBody()],
             [[new ControllerBody(), 'withoutArgumentName']],
+            [[new ControllerBody(), 'withOthersAnnotations']],
         ];
     }
 
@@ -33,7 +34,7 @@ class RestSubscriberBodyTest extends RestSubscriberTest
         return [
             [[new ControllerBody(), 'withoutParameter'], ParameterNotFoundException::class],
             [[new ControllerBody(), 'withoutTypeParameter'], NotTypedParameterException::class],
-            [[new ControllerBody(), 'withoutTwoAnnotations'], MoreThanOneRestParameterException::class],
+            [[new ControllerBody(), 'withTwoAnnotations'], MoreThanOneRestParameterException::class],
         ];
     }
 

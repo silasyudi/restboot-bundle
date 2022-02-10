@@ -22,6 +22,7 @@ class RestSubscriberQueryTest extends RestSubscriberTest
         return [
             [new ControllerQuery()],
             [[new ControllerQuery(), 'withoutArgumentName']],
+            [[new ControllerQuery(), 'withOthersAnnotations']],
         ];
     }
 
@@ -30,7 +31,7 @@ class RestSubscriberQueryTest extends RestSubscriberTest
         return [
             [[new ControllerQuery(), 'withoutParameter'], ParameterNotFoundException::class],
             [[new ControllerQuery(), 'withoutTypeParameter'], NotTypedParameterException::class],
-            [[new ControllerQuery(), 'withoutTwoAnnotations'], MoreThanOneRestParameterException::class],
+            [[new ControllerQuery(), 'withTwoAnnotations'], MoreThanOneRestParameterException::class],
         ];
     }
 }

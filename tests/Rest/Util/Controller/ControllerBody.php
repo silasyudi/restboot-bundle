@@ -4,6 +4,7 @@ namespace Tests\Rest\Util\Controller;
 
 use SymfonyBoot\SymfonyBootBundle\Rest\Annotation\Body;
 use SymfonyBoot\SymfonyBootBundle\Rest\Annotation\Query;
+use Tests\Rest\Util\Annotation\OtherAnnotation;
 use Tests\Rest\Util\Entity\Address;
 
 class ControllerBody
@@ -45,7 +46,15 @@ class ControllerBody
      * @Body("address1")
      * @Query("address2")
      */
-    public function withoutTwoAnnotations(Address $address1, Address $address2)
+    public function withTwoAnnotations(Address $address1, Address $address2)
+    {
+    }
+
+    /**
+     * @OtherAnnotation
+     * @Body("address")
+     */
+    public function withOthersAnnotations(Address $address)
     {
     }
 }
