@@ -1,7 +1,5 @@
 parameters:
   symfonyboot.defaults.rest.format: 'json'
-  symfonyboot.configurations.rest.enable: true
-  symfonyboot.configurations.transaction.enable: true
 
 services:
   _defaults:

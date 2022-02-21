@@ -52,7 +52,6 @@ class AppKernel extends Kernel
         $container->addResource(new FileResource($this->getProjectDir() . '/tests/bundles.php'));
         $container->setParameter('container.dumper.inline_class_loader', true);
 
-        $loader->load($this->getProjectDir() . '/src/Resources/config/services.yml');
         $loader->load($this->getProjectDir() . '/tests/Resources/config/doctrine.yml');
     }
 }
