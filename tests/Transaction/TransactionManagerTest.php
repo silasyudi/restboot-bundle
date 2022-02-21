@@ -23,16 +23,29 @@ class TransactionManagerTest extends TestCase
         $this->connection->expects(self::once())->method('beginTransaction');
         $this->connection->expects(self::never())->method('isTransactionActive');
         $this->connection->expects(self::never())->method('commit');
+        $this->connection->expects(self::never())->method('isRollbackOnly');
         $this->connection->expects(self::never())->method('rollBack');
 
         $this->transactionManager->begin();
     }
 
-    public function testCommitWithTransactionActiveShouldDoCommit(): void
+    public function testCommitWithTransactionActiveAndNotRollbackOnlyShouldDoCommit(): void
     {
         $this->connection->expects(self::never())->method('beginTransaction');
         $this->connection->expects(self::once())->method('isTransactionActive')->willReturn(true);
         $this->connection->expects(self::once())->method('commit');
+        $this->connection->expects(self::once())->method('isRollbackOnly')->willReturn(false);
+        $this->connection->expects(self::never())->method('rollBack');
+
+        $this->transactionManager->commit();
+    }
+
+    public function testCommitWithTransactionActiveAndRollBackOnlyShouldDoNothing(): void
+    {
+        $this->connection->expects(self::never())->method('beginTransaction');
+        $this->connection->expects(self::once())->method('isTransactionActive')->willReturn(true);
+        $this->connection->expects(self::never())->method('commit');
+        $this->connection->expects(self::once())->method('isRollbackOnly')->willReturn(true);
         $this->connection->expects(self::never())->method('rollBack');
 
         $this->transactionManager->commit();
@@ -43,6 +56,7 @@ class TransactionManagerTest extends TestCase
         $this->connection->expects(self::never())->method('beginTransaction');
         $this->connection->expects(self::once())->method('isTransactionActive')->willReturn(false);
         $this->connection->expects(self::never())->method('commit');
+        $this->connection->expects(self::never())->method('isRollbackOnly');
         $this->connection->expects(self::never())->method('rollBack');
 
         $this->transactionManager->commit();
@@ -53,6 +67,7 @@ class TransactionManagerTest extends TestCase
         $this->connection->expects(self::never())->method('beginTransaction');
         $this->connection->expects(self::once())->method('isTransactionActive')->willReturn(true);
         $this->connection->expects(self::never())->method('commit');
+        $this->connection->expects(self::never())->method('isRollbackOnly');
         $this->connection->expects(self::once())->method('rollBack');
 
         $this->transactionManager->rollback();
@@ -63,6 +78,7 @@ class TransactionManagerTest extends TestCase
         $this->connection->expects(self::never())->method('beginTransaction');
         $this->connection->expects(self::once())->method('isTransactionActive')->willReturn(false);
         $this->connection->expects(self::never())->method('commit');
+        $this->connection->expects(self::never())->method('isRollbackOnly');
         $this->connection->expects(self::never())->method('rollBack');
 
         $this->transactionManager->rollback();

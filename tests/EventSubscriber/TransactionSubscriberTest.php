@@ -48,6 +48,25 @@ class TransactionSubscriberTest extends TestCase
         $connection->expects(self::once())->method('isTransactionActive')->willReturn(true);
         $connection->expects(self::once())->method('beginTransaction');
         $connection->expects(self::once())->method('commit');
+        $connection->expects(self::once())->method('isRollbackOnly')->willReturn(false);
+        $connection->expects(self::never())->method('rollback');
+
+        $this->runControllerEvent($controller, $connection, $connectionName);
+        $this->runResponseEvent();
+    }
+
+    /**
+     * @dataProvider providersForTestControllersWithTransactions
+     */
+    public function testResponseEventWithTransactionActiveRollbackOnlyDoNothing(
+        callable $controller,
+        ?string $connectionName
+    ) {
+        $connection = $this->createMock(Connection::class);
+        $connection->expects(self::once())->method('isTransactionActive')->willReturn(true);
+        $connection->expects(self::once())->method('beginTransaction');
+        $connection->expects(self::never())->method('commit');
+        $connection->expects(self::once())->method('isRollbackOnly')->willReturn(true);
         $connection->expects(self::never())->method('rollback');
 
         $this->runControllerEvent($controller, $connection, $connectionName);
@@ -76,6 +95,7 @@ class TransactionSubscriberTest extends TestCase
         $connection->expects(self::once())->method('isTransactionActive')->willReturn(true);
         $connection->expects(self::once())->method('beginTransaction');
         $connection->expects(self::never())->method('commit');
+        $connection->expects(self::never())->method('isRollbackOnly');
         $connection->expects(self::once())->method('rollback');
 
         $this->runControllerEvent($controller, $connection, $connectionName);

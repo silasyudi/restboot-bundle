@@ -21,7 +21,7 @@ class TransactionManager
 
     public function commit(): void
     {
-        if ($this->connection->isTransactionActive()) {
+        if ($this->connection->isTransactionActive() && !$this->connection->isRollbackOnly()) {
             $this->connection->commit();
         }
     }
