@@ -1,5 +1,5 @@
 {
-    "name": "symfonyboot/symfonybootbundle",
+    "name": "symfonyboot/symfonyboot-bundle",
     "description": "This package helps you easily transform your request payload into objects directly in the controller via annotations.",
     "keywords": ["request","payload","controllers","annotations"],
     "type": "symfony-bundle",
@@ -16,8 +16,8 @@
         "ext-iconv": "*",
         "ext-json": "*",
         "doctrine/annotations": "^1.13",
-        "symfony/console": "4.4.*",
-        "symfony/dotenv": "4.4.*",
+        "doctrine/doctrine-bundle": "^2.5",
+        "doctrine/orm": "^2.10",
         "symfony/flex": "^1.3.1",
         "symfony/framework-bundle": "4.4.*",
         "symfony/property-access": "4.4.*",

@@ -15,6 +15,6 @@ class SymfonyBootBundleTest extends TestCase
         (new SymfonyBootBundle())->load($configs, $container);
 
         $this->assertEmpty($configs);
-        $this->assertCount(9, $container->getServiceIds());
+        $this->assertEquals('json', $container->getParameter('symfonyboot.defaults.rest.format'));
     }
 }

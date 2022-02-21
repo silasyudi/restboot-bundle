@@ -1,0 +1,8 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  SymfonyBoot\SymfonyBootBundle\EventSubscriber\TransactionSubscriber:
+    tags: [ name: 'kernel.event_subscriber' ]
+    public: true

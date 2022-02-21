@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Rest\Util\Entity;
+namespace Tests\Util\Entity;
 
 use DateTime;
 

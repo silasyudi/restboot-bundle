@@ -1,0 +1,10 @@
+{
+  "name": "Silas",
+  "age": 30,
+  "male": true,
+  "birtydate": "2000-01-01 12:34:56",
+  "phones": {
+    "personal": "99999-9999",
+    "work": "88888-8888"
+  }
+}

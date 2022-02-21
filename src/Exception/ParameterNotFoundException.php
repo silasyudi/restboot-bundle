@@ -1,6 +1,6 @@
 <?php
 
-namespace SymfonyBoot\SymfonyBootBundle\Rest\Exception;
+namespace SymfonyBoot\SymfonyBootBundle\Exception;
 
 use Exception;
 

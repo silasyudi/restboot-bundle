@@ -13,6 +13,6 @@ class SymfonyBootExtensionTest extends TestCase
     {
         $container = new ContainerBuilder();
         (new SymfonyBootExtension())->load([], $container);
-        $this->assertCount(9, $container->getServiceIds());
+        $this->assertEquals('json', $container->getParameter('symfonyboot.defaults.rest.format'));
     }
 }

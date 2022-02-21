@@ -1,0 +1,19 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  SymfonyBoot\SymfonyBootBundle\Serializer\DefaultFormat:
+    arguments:
+      - '%symfonyboot.defaults.rest.format%'
+
+  SymfonyBoot\SymfonyBootBundle\Rest\Converter\BodyConverter:
+    tags: [ name: 'symfonyboot.rest.converter' ]
+
+  SymfonyBoot\SymfonyBootBundle\Rest\Converter\QueryConverter:
+    tags: [ name: 'symfonyboot.rest.converter' ]
+
+  SymfonyBoot\SymfonyBootBundle\EventSubscriber\RestSubscriber:
+    arguments: [ !tagged_iterator 'symfonyboot.rest.converter' ]
+    tags: [ name: 'kernel.event_subscriber' ]
+    public: true

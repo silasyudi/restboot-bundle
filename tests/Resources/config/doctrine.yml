@@ -1,0 +1,38 @@
+doctrine:
+  dbal:
+    default_connection: default
+    connections:
+      default:
+        dbname: ''
+        host: ''
+        port: ''
+        user: ''
+        password: ''
+        driver: 'pdo_sqlite'
+        server_version: ''
+        charset: ''
+        logging: '%kernel.debug%'
+
+      another:
+        dbname: ''
+        host: ''
+        port: ''
+        user: ''
+        password: ''
+        driver: 'pdo_sqlite'
+        server_version: ''
+        charset: ''
+        logging: '%kernel.debug%'
+
+  orm:
+    default_entity_manager: default
+    entity_managers:
+      default:
+        connection: default
+        mappings:
+          App:
+            is_bundle: false
+            type: annotation
+            dir: '%kernel.project_dir%/src/'
+            prefix: 'App\Domain\Model'
+            alias: App
