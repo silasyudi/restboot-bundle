@@ -3,10 +3,10 @@
 namespace Tests\EventSubscriber;
 
 use EmptyIterator;
-use PHPUnit\Framework\MockObject\MockObject;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
+use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\HttpKernel\KernelEvents;
 use SymfonyBoot\SymfonyBootBundle\EventSubscriber\RestSubscriber;
 use SymfonyBoot\SymfonyBootBundle\Exception\ConverterNotFoundException;
@@ -22,7 +22,7 @@ abstract class RestSubscriberTest extends KernelTestCase
     protected function setUp(): void
     {
         parent::bootKernel();
-        $this->restSubscriber = parent::$container->get(RestSubscriber::class);
+        $this->restSubscriber = parent::$kernel->getContainer()->get(RestSubscriber::class);
     }
 
     /**
@@ -93,10 +93,12 @@ abstract class RestSubscriberTest extends KernelTestCase
     {
         $this->expectException($throwable);
 
-        $event = $this->getEvent($controller);
-        $event->expects(self::never())->method('getRequest');
+        $request = $this->getRequestDefault();
+        $event = $this->getEvent($controller, $request);
 
         $this->restSubscriber->onKernelController($event);
+
+        $this->assertEmpty($request->attributes);
     }
 
     public function providerTestErrorsScenarios(): array
@@ -111,18 +113,21 @@ abstract class RestSubscriberTest extends KernelTestCase
     {
         $this->expectException(ConverterNotFoundException::class);
 
-        $event = $this->getEvent($this->getControllerInstance());
-        $event->expects(self::never())->method('getRequest');
+        $request = $this->getRequestDefault();
+        $event = $this->getEvent($this->getControllerInstance(), $this->getRequestDefault());
 
         (new RestSubscriber(new EmptyIterator()))->onKernelController($event);
+        $this->assertEmpty($request->attributes);
     }
 
     public function testWithoutAnnotationShouldDoNothing(): void
     {
-        $event = $this->getEvent([$this->getControllerInstance(), 'withoutAnnotation']);
-        $event->expects(self::never())->method('getRequest');
+        $request = $this->getRequestDefault();
+        $event = $this->getEvent([$this->getControllerInstance(), 'withoutAnnotation'], $request);
 
         $this->restSubscriber->onKernelController($event);
+
+        $this->assertEmpty($request->attributes);
     }
 
     public function testSubscribedEventsShouldBeOnlyKernelController(): void
@@ -135,29 +140,27 @@ abstract class RestSubscriberTest extends KernelTestCase
 
     protected function runEvent(callable $controller, Request $request)
     {
-        $event = $this->getEvent($controller);
-        $event->expects(self::once())->method('getRequest')->willReturn($request);
+        $event = $this->getEvent($controller, $request);
 
         $this->restSubscriber->onKernelController($event);
     }
 
-    /**
-     * @param callable $controller
-     * @return MockObject|ControllerEvent
-     */
-    protected function getEvent(callable $controller): MockObject
+    protected function getEvent(callable $controller, Request $request): ControllerEvent
     {
-        $event = $this->createMock(ControllerEvent::class);
-
-        $event->expects(self::once())
-            ->method('getController')
-            ->willReturn($controller);
-
-        return $event;
+        return new ControllerEvent(
+            $this->createMock(HttpKernelInterface::class),
+            $controller,
+            $request,
+            HttpKernelInterface::MASTER_REQUEST
+        );
     }
 
     abstract protected function getControllerInstance();
 
     abstract protected function getRequest(string $file): Request;
 
+    protected function getRequestDefault(): Request
+    {
+        return Request::create('/');
+    }
 }

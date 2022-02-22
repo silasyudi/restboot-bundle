@@ -1,43 +1,43 @@
 # SymfonyBoot
 
-SymfonyBoot is a Symfony package to speed up the development of rest apis.
+SymfonyBoot é um *bundle* Symfony para acelerar o desenvolvimento de API's REST.
 
-## Summary
-- [Language / Idioma](#language--idioma)
-- [Instalation](#instalation)
-- [Requirements](#requirements)
-- [Features](#features)
-- [Documentation](#documentation)
+## Sumário
+- [Idioma / Language](#idioma--language)
+- [Instalação](#instalao)
+- [Pré-requisitos](#pr-requisitos)
+- [Funcionalidades](#funcionalidades)
+- [Documentação](#documentao)
 
-## Language / Idioma
+## Idioma / Language
 
-Leia a versão em português :brazil: [aqui](README_PT_BR.md).
+Read the English :us: version [here](README.md).
 
-## Instalation
+## Instalação
 
 ```sh
 composer require symfonyboot/symfonyboot-bundle
 ```
 
-## Requirements
+## Pré-requisitos
 
 - PHP 7.4+
 - Composer
 - Symfony 4.4+ / 5+
 - Doctrine 2+
 
-## Features
+## Funcionalidades
 
-### Convert payloads into objects in the controller methods
+### Conversão de *payloads* em objetos diretamente nos métodos dos controladores 
 
-With @Body and @Query annotations, you can automatically convert your payloads
-and queries into objects in the controller methods.
+Com as *annotations* @Body e @Query você converte automaticamente os *payloads* ou *queries*,
+respectivamente, em objetos nos métodos dos controladores.
 
-#### Example without SymfonyBoot:
+#### Exemplo sem SymfonyBoot:
 
 ```php
 /**
- * Payload converted with some serializer
+ * Conversão de Payload com algum serializador 
  * @Route("/myAction", methods={"POST"}) 
  */
 public function __invoke(Request $request, SerializerInterface $serializer)
@@ -50,13 +50,13 @@ public function __invoke(Request $request, SerializerInterface $serializer)
     ...
 ```
 
-#### Example with SymfonyBoot:
+#### Exemplo com SymfonyBoot:
 
 ```php
 use SymfonyBoot\SymfonyBootBundle\Rest\Annotation\Body;
 
 /**
- * Payload converted with @Body annotation
+ * Conversão de Payload com annotation @Body
  * @Route("/myAction", methods={"POST"})
  * @Body("myObject")
  */
@@ -65,11 +65,11 @@ public function __invoke(MyObjectDTO $myObject)
     ...
 ```
 
-### Easily manage the Doctrine transaction
+### Gerencie facilment a transação do Doctrine
 
-With @Transaction annotation, you can reduce the verbosity of Doctrine transaction management.
+Com a *annotation* @Transaction, a verbosidade do gerenciamento de transaço do Doctrine é reduzida.
 
-#### Example without SymfonyBoot:
+#### Exemplo sem SymfonyBoot:
 
 ```php
 /**
@@ -96,7 +96,7 @@ public function __invoke()
     ...
 ```
 
-#### Example with SymfonyBoot:
+#### Exemplo com SymfonyBoot:
 
 ```php
 use SymfonyBoot\SymfonyBootBundle\Transaction\Annotation\Transaction;
@@ -113,12 +113,13 @@ public function __invoke()
     ...
 ```
 
-## Documentation
+## Documentação
 
-**English** :us:
+**Português** :brazil:
+- [REST Converter Annotations](Documentation/REST_PT_BR.md)
+- [Transaction Annotation](Documentation/TRANSACTION_PT_BR.md)
+
+**Inglês** :us:
 - [REST Converter Annotations](Documentation/REST.md)
 - [Transaction Annotation](Documentation/TRANSACTION.md)
 
-**Portuguese** :brazil:
-- [REST Converter Annotations](Documentation/REST_PT_BR.md)
-- [Transaction Annotation](Documentation/TRANSACTION_PT_BR.md)

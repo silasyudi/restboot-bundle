@@ -4,10 +4,14 @@ namespace Tests\EventSubscriber;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\Persistence\ManagerRegistry;
+use Exception;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
+use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\HttpKernel\KernelEvents;
 use SymfonyBoot\SymfonyBootBundle\EventSubscriber\TransactionSubscriber;
 use Tests\Util\Controller\Transaction\ControllerWithClassTransaction;
@@ -76,14 +80,10 @@ class TransactionSubscriberTest extends TestCase
     public function testResponseEventWithTransactionInactiveDoNothing(): void
     {
         $this->managerRegistry->expects(self::never())->method('getConnection');
-
-        $event = $this->createMock(ControllerEvent::class);
-        $event->expects(self::once())
-            ->method('getController')
-            ->willReturn($this->getControllerWithoutTransaction());
+        $event = $this->getControllerEvent($this->getControllerWithoutTransaction());
 
         $this->transactionSubscriber->onKernelController($event);
-        $this->transactionSubscriber->onKernelResponse($this->createMock(ResponseEvent::class));
+        $this->runResponseEvent();
     }
 
     /**
@@ -105,14 +105,10 @@ class TransactionSubscriberTest extends TestCase
     public function testExceptionEventWithTransactionInactiveShouldDoNothing(): void
     {
         $this->managerRegistry->expects(self::never())->method('getConnection');
-
-        $event = $this->createMock(ControllerEvent::class);
-        $event->expects(self::once())
-            ->method('getController')
-            ->willReturn($this->getControllerWithoutTransaction());
+        $event = $this->getControllerEvent($this->getControllerWithoutTransaction());
 
         $this->transactionSubscriber->onKernelController($event);
-        $this->transactionSubscriber->onKernelResponse($this->createMock(ResponseEvent::class));
+        $this->runExceptionEvent();
     }
 
     private function runControllerEvent(callable $controller, Connection $connection, ?string $connectionName): void
@@ -122,24 +118,40 @@ class TransactionSubscriberTest extends TestCase
             ->with($connectionName)
             ->willReturn($connection);
 
-        $event = $this->createMock(ControllerEvent::class);
-        $event->expects(self::once())
-            ->method('getController')
-            ->with()
-            ->willReturn($controller);
+        $event = $this->getControllerEvent($controller);
 
         $this->transactionSubscriber->onKernelController($event);
     }
 
+    private function getControllerEvent(callable $controller): ControllerEvent
+    {
+        return new ControllerEvent(
+            $this->createMock(HttpKernelInterface::class),
+            $controller,
+            $this->createMock(Request::class),
+            HttpKernelInterface::MASTER_REQUEST
+        );
+    }
+
     private function runResponseEvent(): void
     {
-        $event = $this->createMock(ResponseEvent::class);
+        $event = new ResponseEvent(
+            $this->createMock(HttpKernelInterface::class),
+            $this->createMock(Request::class),
+            HttpKernelInterface::MASTER_REQUEST,
+            $this->createMock(Response::class)
+        );
         $this->transactionSubscriber->onKernelResponse($event);
     }
 
     private function runExceptionEvent(): void
     {
-        $event = $this->createMock(ExceptionEvent::class);
+        $event = new ExceptionEvent(
+            $this->createMock(HttpKernelInterface::class),
+            $this->createMock(Request::class),
+            HttpKernelInterface::MASTER_REQUEST,
+            new Exception()
+        );
         $this->transactionSubscriber->onKernelException($event);
     }
 
