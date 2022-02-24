@@ -7,8 +7,8 @@ respectivamente, em objetos nos métodos dos controladores.
 
 - [Como funciona?](#como-funciona)
 - Uso
-  - [Anotação @Body](#anotao-body)
-  - [Anotação @Query](#anotao-query)
+  - [Anotação @Body](#anotação-body)
+  - [Anotação @Query](#anotação-query)
 
 ## Como funciona?
 
