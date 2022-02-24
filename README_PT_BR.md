@@ -65,9 +65,9 @@ public function __invoke(MyObjectDTO $myObject)
     ...
 ```
 
-### Gerencie facilment a transação do Doctrine
+### Gerencie facilmente a transação do Doctrine
 
-Com a *annotation* @Transaction, a verbosidade do gerenciamento de transaço do Doctrine é reduzida.
+Com a *annotation* @Transaction, a verbosidade do gerenciamento de transação do Doctrine é reduzida.
 
 #### Exemplo sem SymfonyBoot:
 
