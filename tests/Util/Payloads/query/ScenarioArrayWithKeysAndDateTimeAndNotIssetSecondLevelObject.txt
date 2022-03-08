@@ -1,0 +1,1 @@
+?name=Silas&age=30&male=1&birtydate=2000-01-01%2012%3A34%3A56&weight=65.432&phones[personal]=99999-9999&phones[work]=88888-8888&gameScore[balanceWinningsLosses]=-12&gameScore[balancePoints]=-1234.56

@@ -1,0 +1,24 @@
+parameters:
+  symfonyboot.rest.payload.format: 'json'
+  symfonyboot.rest.priority.controller: 1
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  SymfonyBoot\SymfonyBootBundle\Serializer\DefaultFormat:
+    arguments:
+      - '%symfonyboot.rest.payload.format%'
+
+  SymfonyBoot\SymfonyBootBundle\Rest\Converter\BodyConverter:
+    tags: [ name: 'symfonyboot.rest.converter' ]
+
+  SymfonyBoot\SymfonyBootBundle\Rest\Converter\QueryConverter:
+    tags: [ name: 'symfonyboot.rest.converter' ]
+
+  SymfonyBoot\SymfonyBootBundle\EventListener\RestListener:
+    arguments: [ !tagged_iterator 'symfonyboot.rest.converter' ]
+    tags:
+      - { name: 'kernel.event_listener', event: 'kernel.controller', method: 'onKernelController', priority: '%symfonyboot.rest.priority.controller%' }
+    public: true

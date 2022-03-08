@@ -1,0 +1,16 @@
+parameters:
+  symfonyboot.transaction.priority.controller: 1
+  symfonyboot.transaction.priority.response: 1
+  symfonyboot.transaction.priority.exception: 1
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  SymfonyBoot\SymfonyBootBundle\EventListener\TransactionListener:
+    tags:
+      - { name: 'kernel.event_listener', event: 'kernel.controller', method: 'onKernelController', priority: '%symfonyboot.transaction.priority.controller%' }
+      - { name: 'kernel.event_listener', event: 'kernel.response', method: 'onKernelResponse', priority: '%symfonyboot.transaction.priority.response%' }
+      - { name: 'kernel.event_listener', event: 'kernel.exception', method: 'onKernelException', priority: '%symfonyboot.transaction.priority.exception%' }
+    public: true
