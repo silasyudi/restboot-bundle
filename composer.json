@@ -38,6 +38,9 @@
         },
         "sort-packages": true
     },
+    "scripts": {
+        "test": "./vendor/bin/phpunit -c phpunit.xml.dist --testdox"
+    },
     "autoload": {
         "psr-4": {
             "SymfonyBoot\\SymfonyBootBundle\\": "src/"
