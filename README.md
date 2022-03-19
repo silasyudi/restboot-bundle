@@ -1,5 +1,7 @@
 # SymfonyBoot
 
+[![Tests](https://github.com/symfonyboot/symfonyboot-bundle/actions/workflows/tests.yml/badge.svg)](https://github.com/symfonyboot/symfonyboot-bundle/actions/workflows/tests.yml)
+
 SymfonyBoot is a Symfony package to speed up the development of rest apis.
 
 ## Summary
