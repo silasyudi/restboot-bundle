@@ -32,8 +32,7 @@ jobs:
       - name: Run test suite
         run: composer run-script test
 
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v2
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
         with:
-          files: ./clover.xml
-          token: ${{ secrets.CODECOV_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
