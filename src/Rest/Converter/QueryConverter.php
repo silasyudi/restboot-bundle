@@ -19,7 +19,7 @@ class QueryConverter extends AbstractConverter
         return json_encode($request->query->all());
     }
 
-    protected function getFormat(Request $request): ?string
+    protected function getFormat(Request $request): string
     {
         return $this->defaultFormat->getFormat();
     }

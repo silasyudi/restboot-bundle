@@ -1,6 +1,7 @@
 parameters:
   symfonyboot.rest.payload.format: 'json'
   symfonyboot.rest.priority.controller: 1
+  symfonyboot.rest.payload.accepted.formats: ['json', 'xml']
 
 services:
   _defaults:
@@ -10,6 +11,10 @@ services:
   SymfonyBoot\SymfonyBootBundle\Serializer\DefaultFormat:
     arguments:
       - '%symfonyboot.rest.payload.format%'
+
+  SymfonyBoot\SymfonyBootBundle\Serializer\AcceptedFormats:
+    arguments:
+      - '%symfonyboot.rest.payload.accepted.formats%'
 
   SymfonyBoot\SymfonyBootBundle\Rest\Converter\BodyConverter:
     tags: [ name: 'symfonyboot.rest.converter' ]

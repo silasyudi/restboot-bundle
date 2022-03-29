@@ -33,14 +33,15 @@ SerializerInterface do Symfony (como por exemplo, JSON ou XML).
 
 #### Content-type
 
-É importante que no cabeçalho da requisição seja enviado o *content-type* apropriado. Na falta desta informação, 
-a aplicação utilizará o formato JSON como padrão. 
+É importante que no cabeçalho da requisição seja enviado o *content-type* apropriado. Na falta desta informação ou
+se o *content-type* não for um formato válido para serialização, a aplicação utilizará o formato JSON como padrão. 
 
-Você pode alterar o content-type padrão nas configurações do Symfony, da seguinte forma:
+Você pode alterar o content-type padrão e os formatos aceitos para serialização nas configurações do Symfony, da seguinte forma:
 
 ```yaml
 parameters:
   symfonyboot.rest.payload.format: 'xml' #alterando para XML
+  symfonyboot.rest.payload.accepted.formats: ['json', 'xml']
 ```
 
 Observe que aqui não se usa o media-type, mas sim o nome do formato.

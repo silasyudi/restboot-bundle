@@ -32,5 +32,5 @@ abstract class AbstractConverter
 
     abstract protected function getContent(Request $request): string;
 
-    abstract protected function getFormat(Request $request): ?string;
+    abstract protected function getFormat(Request $request): string;
 }

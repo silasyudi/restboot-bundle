@@ -34,13 +34,15 @@ SerializerInterface (such as JSON or XML).
 #### Content-type
 
 It is important that the appropriate content-type is sent in the request header.
-In the absence of this information, the application will use JSON format as default.
+In the absence of this information or if the format is not accepted for serialization,
+the application will use JSON format as default.
 
-With this setting in your *services.yml* you can change the default content-type:
+With this setting in your *services.yml* you can change the default content-type and the accepted formats for serialization:
 
 ```yaml
 parameters:
   symfonyboot.rest.payload.format: 'xml' #changing to XML
+  symfonyboot.rest.payload.accepted.formats: ['json', 'xml']
 ```
 
 Note that the format name is used here instead media-type.
