@@ -7,7 +7,7 @@
 .env.test
 composer.lock
 symfony.lock
-lcov.info
+clover.xml
 
 ###> symfony/framework-bundle ###
 /.env.local
