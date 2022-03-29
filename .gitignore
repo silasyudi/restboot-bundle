@@ -7,7 +7,7 @@
 .env.test
 composer.lock
 symfony.lock
-clover.xml
+lcov.info
 
 ###> symfony/framework-bundle ###
 /.env.local
@@ -15,11 +15,8 @@ clover.xml
 /.env.*.local
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
-/var/
-/vendor/
 ###< symfony/framework-bundle ###
 
 ###> phpunit/phpunit ###
 /phpunit.xml
-.phpunit.result.cache
 ###< phpunit/phpunit ###
