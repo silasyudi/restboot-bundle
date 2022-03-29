@@ -1,11 +1,11 @@
 <?php
 
-namespace Tests\EventListener\Rest;
+namespace SymfonyBoot\SymfonyBootBundle\Tests\EventListener\Rest;
 
 use Symfony\Component\HttpFoundation\Request;
-use Tests\EventListener\RestListenerTest;
-use Tests\Util\Controller\Rest\ControllerQuery;
-use Tests\Util\Payloads\FileReaderUtil;
+use SymfonyBoot\SymfonyBootBundle\Tests\EventListener\RestListenerTest;
+use SymfonyBoot\SymfonyBootBundle\Tests\Util\Controller\Rest\ControllerQuery;
+use SymfonyBoot\SymfonyBootBundle\Tests\Util\Payloads\FileReaderUtil;
 
 class RestListenerQueryTest extends RestListenerTest
 {

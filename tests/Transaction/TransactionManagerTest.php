@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Transaction;
+namespace SymfonyBoot\SymfonyBootBundle\Tests\Transaction;
 
 use Doctrine\DBAL\Connection;
 use PHPUnit\Framework\TestCase;

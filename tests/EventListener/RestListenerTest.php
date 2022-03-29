@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\EventListener;
+namespace SymfonyBoot\SymfonyBootBundle\Tests\EventListener;
 
 use EmptyIterator;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
@@ -11,8 +11,8 @@ use SymfonyBoot\SymfonyBootBundle\EventListener\RestListener;
 use SymfonyBoot\SymfonyBootBundle\Exception\ConverterNotFoundException;
 use SymfonyBoot\SymfonyBootBundle\Exception\NotTypedParameterException;
 use SymfonyBoot\SymfonyBootBundle\Exception\ParameterNotFoundException;
-use Tests\Util\Entity\Address;
-use Tests\Util\Entity\Person;
+use SymfonyBoot\SymfonyBootBundle\Tests\Util\Entity\Address;
+use SymfonyBoot\SymfonyBootBundle\Tests\Util\Entity\Person;
 
 abstract class RestListenerTest extends KernelTestCase
 {

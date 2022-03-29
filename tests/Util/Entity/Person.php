@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Util\Entity;
+namespace SymfonyBoot\SymfonyBootBundle\Tests\Util\Entity;
 
 use DateTime;
 

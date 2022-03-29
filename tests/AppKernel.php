@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests;
+namespace SymfonyBoot\SymfonyBootBundle\Tests;
 
 use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;

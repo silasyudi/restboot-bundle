@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\DependencyInjection;
+namespace SymfonyBoot\SymfonyBootBundle\Tests\DependencyInjection;
 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

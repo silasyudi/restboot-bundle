@@ -1,11 +1,11 @@
 <?php
 
-namespace Tests\Util\Controller\Rest;
+namespace SymfonyBoot\SymfonyBootBundle\Tests\Util\Controller\Rest;
 
 use SymfonyBoot\SymfonyBootBundle\Rest\Annotation\Body;
 use SymfonyBoot\SymfonyBootBundle\Rest\Annotation\Query;
-use Tests\Util\Entity\Address;
-use Tests\Util\Entity\Person;
+use SymfonyBoot\SymfonyBootBundle\Tests\Util\Entity\Address;
+use SymfonyBoot\SymfonyBootBundle\Tests\Util\Entity\Person;
 
 class ControllerBody
 {

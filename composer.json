@@ -48,7 +48,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "SymfonyBoot\\SymfonyBootBundle\\Tests\\": "tests/"
         }
     },
     "conflict": {

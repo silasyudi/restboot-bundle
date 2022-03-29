@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Util\Controller\Transaction;
+namespace SymfonyBoot\SymfonyBootBundle\Tests\Util\Controller\Transaction;
 
 use SymfonyBoot\SymfonyBootBundle\Transaction\Annotation\Transaction;
 
