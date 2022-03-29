@@ -39,7 +39,7 @@
         "sort-packages": true
     },
     "scripts": {
-        "test": "./vendor/bin/phpunit -c phpunit.xml.dist --testdox"
+        "test": "XDEBUG_MODE=coverage ./vendor/bin/phpunit -c phpunit.xml.dist --testdox"
     },
     "autoload": {
         "psr-4": {
