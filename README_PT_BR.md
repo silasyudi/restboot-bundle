@@ -1,5 +1,9 @@
 # SymfonyBoot
 
+[![Tests](https://github.com/symfonyboot/symfonyboot-bundle/actions/workflows/tests.yml/badge.svg)](https://github.com/symfonyboot/symfonyboot-bundle/actions/workflows/tests.yml)
+[![Maintainability](https://api.codeclimate.com/v1/badges/00b538dd4da9d4e85f6d/maintainability)](https://codeclimate.com/github/symfonyboot/symfonyboot-bundle/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/00b538dd4da9d4e85f6d/test_coverage)](https://codeclimate.com/github/symfonyboot/symfonyboot-bundle/test_coverage)
+
 SymfonyBoot é um *bundle* Symfony para acelerar o desenvolvimento de API's REST.
 
 ## Sumário
