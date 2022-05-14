@@ -1,13 +1,13 @@
 <?php
 
-namespace SymfonyBoot\SymfonyBootBundle\EventListener;
+namespace SilasYudi\RestBootBundle\EventListener;
 
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
-use SymfonyBoot\SymfonyBootBundle\Exception\ConverterNotFoundException;
-use SymfonyBoot\SymfonyBootBundle\Reflections\ReflectionsUtil;
-use SymfonyBoot\SymfonyBootBundle\Rest\Annotation\Rest;
-use SymfonyBoot\SymfonyBootBundle\Rest\Converter\AbstractConverter;
-use SymfonyBoot\SymfonyBootBundle\Rest\ValueObject\ConverterContext;
+use SilasYudi\RestBootBundle\Exception\ConverterNotFoundException;
+use SilasYudi\RestBootBundle\Reflections\ReflectionsUtil;
+use SilasYudi\RestBootBundle\Rest\Annotation\Rest;
+use SilasYudi\RestBootBundle\Rest\Converter\AbstractConverter;
+use SilasYudi\RestBootBundle\Rest\ValueObject\ConverterContext;
 use Traversable;
 
 class RestListener

@@ -1,6 +1,6 @@
 <?php
 
-namespace SymfonyBoot\SymfonyBootBundle\Rest\Annotation;
+namespace SilasYudi\RestBootBundle\Rest\Annotation;
 
 abstract class Rest
 {

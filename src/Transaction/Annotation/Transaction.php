@@ -1,6 +1,6 @@
 <?php
 
-namespace SymfonyBoot\SymfonyBootBundle\Transaction\Annotation;
+namespace SilasYudi\RestBootBundle\Transaction\Annotation;
 
 /**
  * @Annotation

@@ -1,8 +1,8 @@
 <?php
 
-namespace SymfonyBoot\SymfonyBootBundle\Tests\Util\Controller\Transaction;
+namespace SilasYudi\RestBootBundle\Tests\Util\Controller\Transaction;
 
-use SymfonyBoot\SymfonyBootBundle\Transaction\Annotation\Transaction;
+use SilasYudi\RestBootBundle\Transaction\Annotation\Transaction;
 
 class ControllerWithoutClassTransaction
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace SymfonyBoot\SymfonyBootBundle\Tests;
+namespace SilasYudi\RestBootBundle\Tests;
 
 use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
@@ -8,7 +8,7 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel;
-use SymfonyBoot\SymfonyBootBundle\SymfonyBootBundle;
+use SilasYudi\RestBootBundle\RestBootBundle;
 
 class AppKernel extends Kernel
 {
@@ -18,7 +18,7 @@ class AppKernel extends Kernel
         return [
             new FrameworkBundle(),
             new DoctrineBundle(),
-            new SymfonyBootBundle(),
+            new RestBootBundle(),
         ];
     }
 

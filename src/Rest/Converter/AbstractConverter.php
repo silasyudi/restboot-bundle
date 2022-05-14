@@ -1,11 +1,11 @@
 <?php
 
-namespace SymfonyBoot\SymfonyBootBundle\Rest\Converter;
+namespace SilasYudi\RestBootBundle\Rest\Converter;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Serializer\SerializerInterface;
-use SymfonyBoot\SymfonyBootBundle\Rest\ValueObject\ConverterContext;
-use SymfonyBoot\SymfonyBootBundle\Serializer\DefaultFormat;
+use SilasYudi\RestBootBundle\Rest\ValueObject\ConverterContext;
+use SilasYudi\RestBootBundle\Serializer\DefaultFormat;
 
 abstract class AbstractConverter
 {

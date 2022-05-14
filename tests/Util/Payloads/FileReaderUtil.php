@@ -1,6 +1,6 @@
 <?php
 
-namespace SymfonyBoot\SymfonyBootBundle\Tests\Util\Payloads;
+namespace SilasYudi\RestBootBundle\Tests\Util\Payloads;
 
 class FileReaderUtil
 {

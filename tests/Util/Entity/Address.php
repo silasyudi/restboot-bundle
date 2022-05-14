@@ -1,6 +1,6 @@
 <?php
 
-namespace SymfonyBoot\SymfonyBootBundle\Tests\Util\Entity;
+namespace SilasYudi\RestBootBundle\Tests\Util\Entity;
 
 class Address
 {

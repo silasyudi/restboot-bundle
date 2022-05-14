@@ -1,13 +1,13 @@
 <?php
 
-namespace SymfonyBoot\SymfonyBootBundle\Reflections;
+namespace SilasYudi\RestBootBundle\Reflections;
 
 use Doctrine\Common\Annotations\AnnotationReader;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionParameter;
-use SymfonyBoot\SymfonyBootBundle\Exception\NotTypedParameterException;
-use SymfonyBoot\SymfonyBootBundle\Exception\ParameterNotFoundException;
+use SilasYudi\RestBootBundle\Exception\NotTypedParameterException;
+use SilasYudi\RestBootBundle\Exception\ParameterNotFoundException;
 
 class ReflectionsUtil
 {

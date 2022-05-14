@@ -1,12 +1,12 @@
 <?php
 
-namespace SymfonyBoot\SymfonyBootBundle\Tests\EventListener\Rest;
+namespace SilasYudi\RestBootBundle\Tests\EventListener\Rest;
 
 use Symfony\Component\HttpFoundation\Request;
-use SymfonyBoot\SymfonyBootBundle\Tests\EventListener\RestListenerTest;
-use SymfonyBoot\SymfonyBootBundle\Tests\Util\Controller\Rest\ControllerBody;
-use SymfonyBoot\SymfonyBootBundle\Tests\Util\Entity\Address;
-use SymfonyBoot\SymfonyBootBundle\Tests\Util\Payloads\FileReaderUtil;
+use SilasYudi\RestBootBundle\Tests\EventListener\RestListenerTest;
+use SilasYudi\RestBootBundle\Tests\Util\Controller\Rest\ControllerBody;
+use SilasYudi\RestBootBundle\Tests\Util\Entity\Address;
+use SilasYudi\RestBootBundle\Tests\Util\Payloads\FileReaderUtil;
 
 class RestListenerBodyTest extends RestListenerTest
 {

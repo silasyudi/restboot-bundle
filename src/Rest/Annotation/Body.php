@@ -1,8 +1,8 @@
 <?php
 
-namespace SymfonyBoot\SymfonyBootBundle\Rest\Annotation;
+namespace SilasYudi\RestBootBundle\Rest\Annotation;
 
-use SymfonyBoot\SymfonyBootBundle\Rest\Converter\BodyConverter;
+use SilasYudi\RestBootBundle\Rest\Converter\BodyConverter;
 
 /**
  * @Annotation

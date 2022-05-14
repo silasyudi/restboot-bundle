@@ -14,7 +14,7 @@ respectively, on objects in controller methods.
 
 ## How it works?
 
-The SymfonyBoot\SymfonyBootBundle\EventListener\RestListener listener checks for the presence of annotations
+The SilasYudi\RestBootBundle\EventListener\RestListener listener checks for the presence of annotations
 @Body or @Query on controller methods on triggered routes.
 
 If so, the content is converted to an object through Symfony's [SerializerInterface](https://symfony.com/doc/current/components/serializer.html).
@@ -41,8 +41,8 @@ With this setting in your *services.yml* you can change the default content-type
 
 ```yaml
 parameters:
-  symfonyboot.rest.payload.format: 'xml' #changing to XML
-  symfonyboot.rest.payload.accepted.formats: ['json', 'xml']
+  restboot.rest.payload.format: 'xml' #changing to XML
+  restboot.rest.payload.accepted.formats: ['json', 'xml']
 ```
 
 Note that the format name is used here instead media-type.
@@ -53,7 +53,7 @@ The @Body annotation must be used in the method signature where a route is start
 
 ```php
 use Symfony\Component\Routing\Annotation\Route;
-use SymfonyBoot\SymfonyBootBundle\Rest\Annotation\Body;
+use SilasYudi\RestBootBundle\Rest\Annotation\Body;
 
 /**
  * @Route("/action", methods={"POST"})
@@ -87,7 +87,7 @@ The @Query annotation must be used in the method signature where a route is star
 
 ```php
 use Symfony\Component\Routing\Annotation\Route;
-use SymfonyBoot\SymfonyBootBundle\Rest\Annotation\Query;
+use SilasYudi\RestBootBundle\Rest\Annotation\Query;
 
 /**
  * @Route("/action", methods={"GET"})
@@ -140,7 +140,7 @@ To change this value, in the Symfony settings specify as follows:
 
 ```yaml
 parameters:
-  symfonyboot.rest.priority.controller: 0 #changing to 0
+  restboot.rest.priority.controller: 0 #changing to 0
 ```
 
 Obs.: Symfony allows you to specify any positive, negative, or zero integer values.

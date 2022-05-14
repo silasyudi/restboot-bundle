@@ -1,10 +1,10 @@
-# SymfonyBoot
+# RestBoot
 
-[![Tests](https://github.com/symfonyboot/symfonyboot-bundle/actions/workflows/tests.yml/badge.svg)](https://github.com/symfonyboot/symfonyboot-bundle/actions/workflows/tests.yml)
-[![Maintainability](https://api.codeclimate.com/v1/badges/00b538dd4da9d4e85f6d/maintainability)](https://codeclimate.com/github/symfonyboot/symfonyboot-bundle/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/00b538dd4da9d4e85f6d/test_coverage)](https://codeclimate.com/github/symfonyboot/symfonyboot-bundle/test_coverage)
+[![Tests](https://github.com/silasyudi/restboot-bundle/actions/workflows/tests.yml/badge.svg)](https://github.com/silasyudi/restboot-bundle/actions/workflows/tests.yml)
+[![Maintainability](https://api.codeclimate.com/v1/badges/6e06d94e4468b1e8f655/maintainability)](https://codeclimate.com/github/silasyudi/restboot-bundle/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/6e06d94e4468b1e8f655/test_coverage)](https://codeclimate.com/github/silasyudi/restboot-bundle/test_coverage)
 
-SymfonyBoot is a Symfony package to speed up the development of rest apis.
+Symfony package to speed up the development of rest apis.
 
 ## Summary
 - [Language / Idioma](#language--idioma)
@@ -20,7 +20,7 @@ Leia a versão em português :brazil: [aqui](README_PT_BR.md).
 ## Instalation
 
 ```sh
-composer require symfonyboot/symfonyboot-bundle
+composer require silasyudi/restboot-bundle
 ```
 
 ## Requirements
@@ -37,7 +37,7 @@ composer require symfonyboot/symfonyboot-bundle
 With @Body and @Query annotations, you can automatically convert your payloads
 and queries into objects in the controller methods.
 
-#### Example without SymfonyBoot:
+#### Example without RestBoot:
 
 ```php
 /**
@@ -54,10 +54,10 @@ public function __invoke(Request $request, SerializerInterface $serializer)
     ...
 ```
 
-#### Example with SymfonyBoot:
+#### Example with RestBoot:
 
 ```php
-use SymfonyBoot\SymfonyBootBundle\Rest\Annotation\Body;
+use SilasYudi\RestBootBundle\Rest\Annotation\Body;
 
 /**
  * Payload converted with @Body annotation
@@ -73,7 +73,7 @@ public function __invoke(MyObjectDTO $myObject)
 
 With @Transaction annotation, you can reduce the verbosity of Doctrine transaction management.
 
-#### Example without SymfonyBoot:
+#### Example without RestBoot:
 
 ```php
 /**
@@ -100,10 +100,10 @@ public function __invoke()
     ...
 ```
 
-#### Example with SymfonyBoot:
+#### Example with RestBoot:
 
 ```php
-use SymfonyBoot\SymfonyBootBundle\Transaction\Annotation\Transaction;
+use SilasYudi\RestBootBundle\Transaction\Annotation\Transaction;
 
 ...
 

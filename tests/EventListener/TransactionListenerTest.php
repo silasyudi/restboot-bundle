@@ -1,6 +1,6 @@
 <?php
 
-namespace SymfonyBoot\SymfonyBootBundle\Tests\EventListener;
+namespace SilasYudi\RestBootBundle\Tests\EventListener;
 
 use Doctrine\DBAL\Connection;
 use Doctrine\Persistence\ManagerRegistry;
@@ -12,9 +12,9 @@ use Symfony\Component\HttpKernel\Event\ControllerEvent;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
-use SymfonyBoot\SymfonyBootBundle\EventListener\TransactionListener;
-use SymfonyBoot\SymfonyBootBundle\Tests\Util\Controller\Transaction\ControllerWithClassTransaction;
-use SymfonyBoot\SymfonyBootBundle\Tests\Util\Controller\Transaction\ControllerWithoutClassTransaction;
+use SilasYudi\RestBootBundle\EventListener\TransactionListener;
+use SilasYudi\RestBootBundle\Tests\Util\Controller\Transaction\ControllerWithClassTransaction;
+use SilasYudi\RestBootBundle\Tests\Util\Controller\Transaction\ControllerWithoutClassTransaction;
 
 class TransactionListenerTest extends TestCase
 {

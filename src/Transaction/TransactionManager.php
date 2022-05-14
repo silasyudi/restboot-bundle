@@ -1,6 +1,6 @@
 <?php
 
-namespace SymfonyBoot\SymfonyBootBundle\Transaction;
+namespace SilasYudi\RestBootBundle\Transaction;
 
 use Doctrine\DBAL\Connection;
 

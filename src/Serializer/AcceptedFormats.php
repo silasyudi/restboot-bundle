@@ -1,6 +1,6 @@
 <?php
 
-namespace SymfonyBoot\SymfonyBootBundle\Serializer;
+namespace SilasYudi\RestBootBundle\Serializer;
 
 class AcceptedFormats
 {

@@ -1,18 +1,18 @@
 <?php
 
-namespace SymfonyBoot\SymfonyBootBundle\Tests\EventListener;
+namespace SilasYudi\RestBootBundle\Tests\EventListener;
 
 use EmptyIterator;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
-use SymfonyBoot\SymfonyBootBundle\EventListener\RestListener;
-use SymfonyBoot\SymfonyBootBundle\Exception\ConverterNotFoundException;
-use SymfonyBoot\SymfonyBootBundle\Exception\NotTypedParameterException;
-use SymfonyBoot\SymfonyBootBundle\Exception\ParameterNotFoundException;
-use SymfonyBoot\SymfonyBootBundle\Tests\Util\Entity\Address;
-use SymfonyBoot\SymfonyBootBundle\Tests\Util\Entity\Person;
+use SilasYudi\RestBootBundle\EventListener\RestListener;
+use SilasYudi\RestBootBundle\Exception\ConverterNotFoundException;
+use SilasYudi\RestBootBundle\Exception\NotTypedParameterException;
+use SilasYudi\RestBootBundle\Exception\ParameterNotFoundException;
+use SilasYudi\RestBootBundle\Tests\Util\Entity\Address;
+use SilasYudi\RestBootBundle\Tests\Util\Entity\Person;
 
 abstract class RestListenerTest extends KernelTestCase
 {

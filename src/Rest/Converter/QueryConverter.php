@@ -1,10 +1,10 @@
 <?php
 
-namespace SymfonyBoot\SymfonyBootBundle\Rest\Converter;
+namespace SilasYudi\RestBootBundle\Rest\Converter;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Serializer\SerializerInterface;
-use SymfonyBoot\SymfonyBootBundle\Serializer\DefaultFormat;
+use SilasYudi\RestBootBundle\Serializer\DefaultFormat;
 
 class QueryConverter extends AbstractConverter
 {

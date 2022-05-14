@@ -1,11 +1,11 @@
 <?php
 
-namespace SymfonyBoot\SymfonyBootBundle\Tests\Util\Controller\Rest;
+namespace SilasYudi\RestBootBundle\Tests\Util\Controller\Rest;
 
-use SymfonyBoot\SymfonyBootBundle\Rest\Annotation\Body;
-use SymfonyBoot\SymfonyBootBundle\Rest\Annotation\Query;
-use SymfonyBoot\SymfonyBootBundle\Tests\Util\Entity\Address;
-use SymfonyBoot\SymfonyBootBundle\Tests\Util\Entity\Person;
+use SilasYudi\RestBootBundle\Rest\Annotation\Body;
+use SilasYudi\RestBootBundle\Rest\Annotation\Query;
+use SilasYudi\RestBootBundle\Tests\Util\Entity\Address;
+use SilasYudi\RestBootBundle\Tests\Util\Entity\Person;
 
 class ControllerQuery
 {

@@ -13,7 +13,7 @@ Com a *annotation* @Transaction, a verbosidade do gerenciamento de transação d
 
 ## Como funciona?
 
-O *listener* SymfonyBoot\SymfonyBootBundle\EventListener\TransactionListener verifica a presença da anotação @Transaction
+O *listener* SilasYudi\RestBootBundle\EventListener\TransactionListener verifica a presença da anotação @Transaction
 nos métodos dos controladores nas rotas acionadas.
 
 Se possuir, é criado um *manager* TransactionManager, iniciando a transação no EntityManager passado em parâmetro da anotação (ou no 
@@ -27,7 +27,7 @@ o *commit*, caso a requisição não entre em estado de exceção, ou o *rollbac
 A anotação @Transaction pode ser utilizada em escopo de classe ou de métodos. No caso de escopo de classe, deve ser utilizado sobre a declaração de classe:
 
 ```php
-use SymfonyBoot\SymfonyBootBundle\Transaction\Annotation\Transaction;
+use SilasYudi\RestBootBundle\Transaction\Annotation\Transaction;
 
 /**
  * @Transaction(connection="manager") 
@@ -48,7 +48,7 @@ No caso de escopo de método, deve ser declarada sobre a assinatura do método p
 
 ```php
 use Symfony\Component\Routing\Annotation\Route;
-use SymfonyBoot\SymfonyBootBundle\Transaction\Annotation\Transaction;
+use SilasYudi\RestBootBundle\Transaction\Annotation\Transaction;
 
 /**
  * @Route("/action", methods={"POST"})
@@ -93,9 +93,9 @@ A prioridade do TransactionListener na cadeia de chamadas está configurada como
 
 ```yaml
 parameters:
-  symfonyboot.transaction.priority.controller: 2 #alterando para 2
-  symfonyboot.transaction.priority.response: 3 #alterando para 3
-  symfonyboot.transaction.priority.exception: 4 #alterando para 4
+  restboot.transaction.priority.controller: 2 #alterando para 2
+  restboot.transaction.priority.response: 3 #alterando para 3
+  restboot.transaction.priority.exception: 4 #alterando para 4
 ```
 
 **Importante:**

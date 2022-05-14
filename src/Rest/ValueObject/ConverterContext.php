@@ -1,6 +1,6 @@
 <?php
 
-namespace SymfonyBoot\SymfonyBootBundle\Rest\ValueObject;
+namespace SilasYudi\RestBootBundle\Rest\ValueObject;
 
 class ConverterContext
 {

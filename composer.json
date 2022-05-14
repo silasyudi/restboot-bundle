@@ -1,5 +1,5 @@
 {
-    "name": "symfonyboot/symfonyboot-bundle",
+    "name": "silasyudi/restboot-bundle",
     "description": "Bundle of annotations to make it easier and faster to develop Rest APIs with Symfony.",
     "keywords": ["rest","api","controllers","annotations","transactions","symfony","bundle"],
     "type": "symfony-bundle",
@@ -7,7 +7,7 @@
     "authors": [
         {
             "name": "Silas Yudi",
-            "email": "symfonyboot@gmail.com"
+            "email": "syudik12@gmail.com"
         }
     ],
     "require": {
@@ -43,12 +43,12 @@
     },
     "autoload": {
         "psr-4": {
-            "SymfonyBoot\\SymfonyBootBundle\\": "src/"
+            "SilasYudi\\RestBootBundle\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "SymfonyBoot\\SymfonyBootBundle\\Tests\\": "tests/"
+            "SilasYudi\\RestBootBundle\\Tests\\": "tests/"
         }
     },
     "conflict": {

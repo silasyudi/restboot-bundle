@@ -13,7 +13,7 @@ With @Transaction annotation, you can reduce the verbosity of Doctrine transacti
 
 ## How it works?
 
-The SymfonyBoot\SymfonyBootBundle\EventListener\TransactionListener listener checks for the presence of annotation
+The SilasYudi\RestBootBundle\EventListener\TransactionListener listener checks for the presence of annotation
 @Transaction on controller methods on triggered routes.
 
 If so, a TransactionManager manager is created, starting the transaction in the EntityManager passed in the annotation
@@ -29,7 +29,7 @@ The @Transaction annotation can be used at either class or method scope.
 In the case of class scope, it should be used over the class declaration:
 
 ```php
-use SymfonyBoot\SymfonyBootBundle\Transaction\Annotation\Transaction;
+use SilasYudi\RestBootBundle\Transaction\Annotation\Transaction;
 
 /**
  * @Transaction(connection="manager") 
@@ -50,7 +50,7 @@ In the case of method scope, it must be declared over the method signature where
 
 ```php
 use Symfony\Component\Routing\Annotation\Route;
-use SymfonyBoot\SymfonyBootBundle\Transaction\Annotation\Transaction;
+use SilasYudi\RestBootBundle\Transaction\Annotation\Transaction;
 
 /**
  * @Route("/action", methods={"POST"})
@@ -95,9 +95,9 @@ The TransactionListener's priority in the call chain is set to **1** to events
 
 ```yaml
 parameters:
-  symfonyboot.transaction.priority.controller: 2 #changing to 2
-  symfonyboot.transaction.priority.response: 3 #changing to 3
-  symfonyboot.transaction.priority.exception: 4 #changing to 4
+  restboot.transaction.priority.controller: 2 #changing to 2
+  restboot.transaction.priority.response: 3 #changing to 3
+  restboot.transaction.priority.exception: 4 #changing to 4
 ```
 
 **Important:**

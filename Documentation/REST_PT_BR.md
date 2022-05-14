@@ -14,7 +14,7 @@ respectivamente, em objetos nos métodos dos controladores.
 
 ## Como funciona?
 
-O *listener* SymfonyBoot\SymfonyBootBundle\EventListener\RestListener verifica a presença das anotações
+O *listener* SilasYudi\RestBootBundle\EventListener\RestListener verifica a presença das anotações
 @Body ou @Query nos métodos dos controladores nas rotas acionadas. 
 
 Se possuir, é realizada a conversão do conteúdo para objeto através do [SerializerInterface](https://symfony.com/doc/current/components/serializer.html)
@@ -40,8 +40,8 @@ Você pode alterar o content-type padrão e os formatos aceitos para serializaç
 
 ```yaml
 parameters:
-  symfonyboot.rest.payload.format: 'xml' #alterando para XML
-  symfonyboot.rest.payload.accepted.formats: ['json', 'xml']
+  restboot.rest.payload.format: 'xml' #alterando para XML
+  restboot.rest.payload.accepted.formats: ['json', 'xml']
 ```
 
 Observe que aqui não se usa o media-type, mas sim o nome do formato.
@@ -52,7 +52,7 @@ A anotação @Body deve ser utilizada na assinatura do método em que se inicia 
 
 ```php
 use Symfony\Component\Routing\Annotation\Route;
-use SymfonyBoot\SymfonyBootBundle\Rest\Annotation\Body;
+use SilasYudi\RestBootBundle\Rest\Annotation\Body;
 
 /**
  * @Route("/action", methods={"POST"})
@@ -86,7 +86,7 @@ A anotação @Query deve ser utilizada na assinatura do método em que se inicia
 
 ```php
 use Symfony\Component\Routing\Annotation\Route;
-use SymfonyBoot\SymfonyBootBundle\Rest\Annotation\Query;
+use SilasYudi\RestBootBundle\Rest\Annotation\Query;
 
 /**
  * @Route("/action", methods={"GET"})
@@ -139,7 +139,7 @@ Para alterar este valor, nas configurações do Symfony especifique da seguinte 
 
 ```yaml
 parameters:
-  symfonyboot.rest.priority.controller: 0 #alterando para 0
+  restboot.rest.priority.controller: 0 #alterando para 0
 ```
 
 Obs.: o Symfony permite que se especifique quaisquer valores inteiros positivos, negativos ou zero.

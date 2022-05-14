@@ -1,14 +1,14 @@
 <?php
 
-namespace SymfonyBoot\SymfonyBootBundle\EventListener;
+namespace SilasYudi\RestBootBundle\EventListener;
 
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
-use SymfonyBoot\SymfonyBootBundle\Reflections\ReflectionsUtil;
-use SymfonyBoot\SymfonyBootBundle\Transaction\Annotation\Transaction;
-use SymfonyBoot\SymfonyBootBundle\Transaction\TransactionManager;
+use SilasYudi\RestBootBundle\Reflections\ReflectionsUtil;
+use SilasYudi\RestBootBundle\Transaction\Annotation\Transaction;
+use SilasYudi\RestBootBundle\Transaction\TransactionManager;
 
 class TransactionListener
 {

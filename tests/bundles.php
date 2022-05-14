@@ -2,10 +2,10 @@
 
 use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
-use SymfonyBoot\SymfonyBootBundle\SymfonyBootBundle;
+use SilasYudi\RestBootBundle\RestBootBundle;
 
 return [
     new FrameworkBundle(),
     new DoctrineBundle(),
-    new SymfonyBootBundle(),
+    new RestBootBundle(),
 ];

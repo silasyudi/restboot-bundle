@@ -1,29 +1,29 @@
 parameters:
-  symfonyboot.rest.payload.format: 'json'
-  symfonyboot.rest.priority.controller: 1
-  symfonyboot.rest.payload.accepted.formats: ['json', 'xml']
+  restboot.rest.payload.format: 'json'
+  restboot.rest.priority.controller: 1
+  restboot.rest.payload.accepted.formats: ['json', 'xml']
 
 services:
   _defaults:
     autowire: true
     autoconfigure: true
 
-  SymfonyBoot\SymfonyBootBundle\Serializer\DefaultFormat:
+  SilasYudi\RestBootBundle\Serializer\DefaultFormat:
     arguments:
-      - '%symfonyboot.rest.payload.format%'
+      - '%restboot.rest.payload.format%'
 
-  SymfonyBoot\SymfonyBootBundle\Serializer\AcceptedFormats:
+  SilasYudi\RestBootBundle\Serializer\AcceptedFormats:
     arguments:
-      - '%symfonyboot.rest.payload.accepted.formats%'
+      - '%restboot.rest.payload.accepted.formats%'
 
-  SymfonyBoot\SymfonyBootBundle\Rest\Converter\BodyConverter:
-    tags: [ name: 'symfonyboot.rest.converter' ]
+  SilasYudi\RestBootBundle\Rest\Converter\BodyConverter:
+    tags: [ name: 'restboot.rest.converter' ]
 
-  SymfonyBoot\SymfonyBootBundle\Rest\Converter\QueryConverter:
-    tags: [ name: 'symfonyboot.rest.converter' ]
+  SilasYudi\RestBootBundle\Rest\Converter\QueryConverter:
+    tags: [ name: 'restboot.rest.converter' ]
 
-  SymfonyBoot\SymfonyBootBundle\EventListener\RestListener:
-    arguments: [ !tagged_iterator 'symfonyboot.rest.converter' ]
+  SilasYudi\RestBootBundle\EventListener\RestListener:
+    arguments: [ !tagged_iterator 'restboot.rest.converter' ]
     tags:
-      - { name: 'kernel.event_listener', event: 'kernel.controller', method: 'onKernelController', priority: '%symfonyboot.rest.priority.controller%' }
+      - { name: 'kernel.event_listener', event: 'kernel.controller', method: 'onKernelController', priority: '%restboot.rest.priority.controller%' }
     public: true

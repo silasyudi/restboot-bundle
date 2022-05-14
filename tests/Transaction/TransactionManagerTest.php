@@ -1,10 +1,10 @@
 <?php
 
-namespace SymfonyBoot\SymfonyBootBundle\Tests\Transaction;
+namespace SilasYudi\RestBootBundle\Tests\Transaction;
 
 use Doctrine\DBAL\Connection;
 use PHPUnit\Framework\TestCase;
-use SymfonyBoot\SymfonyBootBundle\Transaction\TransactionManager;
+use SilasYudi\RestBootBundle\Transaction\TransactionManager;
 
 class TransactionManagerTest extends TestCase
 {
