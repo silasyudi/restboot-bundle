@@ -50,8 +50,5 @@
         "psr-4": {
             "SilasYudi\\RestBootBundle\\Tests\\": "tests/"
         }
-    },
-    "conflict": {
-        "symfony/symfony": "*"
     }
 }
