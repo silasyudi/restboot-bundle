@@ -15,7 +15,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-json": "*",
-        "doctrine/annotations": "^1.10",
+        "doctrine/annotations": "^2.0",
         "doctrine/doctrine-bundle": "^2",
         "doctrine/orm": "^2",
         "symfony/flex": "^1.3",
