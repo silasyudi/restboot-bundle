@@ -18,11 +18,11 @@
         "doctrine/annotations": "^2.0",
         "doctrine/doctrine-bundle": "^2",
         "doctrine/orm": "^2",
+        "jms/serializer": "^3.26",
         "symfony/flex": "^1.3",
         "symfony/framework-bundle": "^4.4 | ^5",
         "symfony/property-access": "^4.4 | ^5",
         "symfony/property-info": "^4.4 | ^5",
-        "symfony/serializer": "^4.4 | ^5",
         "symfony/yaml": "^4.4 | ^5"
     },
     "require-dev": {

@@ -17,7 +17,7 @@ respectively, on objects in controller methods.
 The SilasYudi\RestBootBundle\EventListener\RestListener listener checks for the presence of annotations
 @Body or @Query on controller methods on triggered routes.
 
-If so, the content is converted to an object through Symfony's [SerializerInterface](https://symfony.com/doc/current/components/serializer.html).
+If so, the content is converted to an object through JMS's [SerializerInterface](https://jmsyst.com/libs/serializer).
 If this annotation is @Body, the content of the request's *body* is used for the conversion. If the annotation is @Query,
 the *query string* of the request URL is used for conversion.
 
@@ -27,25 +27,7 @@ the *query string* of the request URL is used for conversion.
 
 #### Requirements
 
-To convert a payload from a POST, PUT, PATCH or DELETE request, it must be sent in the body of the request, 
-in [supported format](https://symfony.com/doc/current/serializer.html#adding-normalizers-and-encoders) by Symfony's
-SerializerInterface (such as JSON or XML).
-
-#### Content-type
-
-It is important that the appropriate content-type is sent in the request header.
-In the absence of this information or if the format is not accepted for serialization,
-the application will use JSON format as default.
-
-With this setting in your *services.yml* you can change the default content-type and the accepted formats for serialization:
-
-```yaml
-parameters:
-  restboot.rest.payload.format: 'xml' #changing to XML
-  restboot.rest.payload.accepted.formats: ['json', 'xml']
-```
-
-Note that the format name is used here instead media-type.
+To convert a payload from a POST, PUT, PATCH or DELETE request, it must be sent in the body of the request in JSON.
 
 #### Using annotation in the controller
 
@@ -129,9 +111,10 @@ If you made specific settings for the SerializerInterface, your object must be i
 - *boolean* types MUST:
     - have the value *true* represented as: boolean *true*, integer or decimal not equal to 0, or string other than empty string or string "0".
     - have the value *false* represented as: boolean *false*, integer or decimal equals 0, or string equals empty string or string "0".
-- Dates MUST be represented in RFC3339 format (Y-m-d\TH:i:sP)
+- Dates MUST have an annotation `@JMS\Serializer\Annotation\Type` to specify the format (see the [documentation](https://jmsyst.com/libs/serializer/master/reference/annotations#type)).
+- Arrays MUST have an annotation `@JMS\Serializer\Annotation\Type` to specify the type (see the [documentation](https://jmsyst.com/libs/serializer/master/reference/annotations#type)).
 
-For more information, see the  [Serializer Component](https://symfony.com/doc/current/components/serializer.html) documentation.
+For more information, see the  [Serializer](https://jmsyst.com/libs/serializer) documentation.
 
 ## RestListener Priority
 

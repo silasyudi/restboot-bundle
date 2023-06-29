@@ -1,0 +1,22 @@
+{
+  "name": "Silas",
+  "nicknames": ["Ninja", "Mestre"],
+  "age": "30",
+  "male": true,
+  "birthdate": "2000-01-01 12:34:56",
+  "weight": "65.432",
+  "phones": [
+    {
+      "name": "personal",
+      "number": "99999-9999"
+    },
+    {
+      "name": "work",
+      "number": "88888-8888"
+    }
+  ],
+  "game_score": {
+    "balance_winnings_losses": "-12",
+    "balance_points": "-1234.56"
+  }
+}
