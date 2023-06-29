@@ -3,15 +3,26 @@
 namespace SilasYudi\RestBootBundle\Tests\Util\Entity;
 
 use DateTime;
+use JMS\Serializer\Annotation as Serializer;
 
 class Person
 {
     private string $name;
+    /**
+     * @Serializer\Type("array<string>")
+     */
+    private ?array $nicknames = null;
     private int $age;
     private bool $male;
-    private DateTime $birtydate;
+    /**
+     * @Serializer\Type("DateTime<'Y-m-d H:i:s'>")
+     */
+    private DateTime $birthdate;
     private float $weight;
     private ?Address $address = null;
+    /**
+     * @Serializer\Type("array<SilasYudi\RestBootBundle\Tests\Util\Entity\Phone>")
+     */
     private ?array $phones = null;
     private ?GameScore $gameScore = null;
 
@@ -23,6 +34,17 @@ class Person
     public function setName(string $name): Person
     {
         $this->name = $name;
+        return $this;
+    }
+
+    public function getNicknames(): ?array
+    {
+        return $this->nicknames;
+    }
+
+    public function setNicknames(?array $nicknames): Person
+    {
+        $this->nicknames = $nicknames;
         return $this;
     }
 
@@ -48,14 +70,14 @@ class Person
         return $this;
     }
 
-    public function getBirtydate(): DateTime
+    public function getBirthdate(): DateTime
     {
-        return $this->birtydate;
+        return $this->birthdate;
     }
 
-    public function setBirtydate(DateTime $birtydate): Person
+    public function setBirthdate(DateTime $birthdate): Person
     {
-        $this->birtydate = $birtydate;
+        $this->birthdate = $birthdate;
         return $this;
     }
 

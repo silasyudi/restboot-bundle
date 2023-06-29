@@ -6,6 +6,7 @@ use SilasYudi\RestBootBundle\Rest\Annotation\Body;
 use SilasYudi\RestBootBundle\Rest\Annotation\Query;
 use SilasYudi\RestBootBundle\Tests\Util\Entity\Address;
 use SilasYudi\RestBootBundle\Tests\Util\Entity\Person;
+use SilasYudi\RestBootBundle\Tests\Util\Entity\Primitives;
 
 class ControllerBody
 {
@@ -54,6 +55,13 @@ class ControllerBody
      * @Query("address")
      */
     public function withTwoAnnotations(Person $person, Address $address)
+    {
+    }
+
+    /**
+     * @Body(parameter="primitives")
+     */
+    public function primitives(Primitives $primitives)
     {
     }
 }

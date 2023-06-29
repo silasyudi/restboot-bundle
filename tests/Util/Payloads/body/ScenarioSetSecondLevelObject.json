@@ -1,0 +1,16 @@
+{
+  "name": "Carol",
+  "age": 30,
+  "male": false,
+  "birthdate": "2000-01-01 12:34:56",
+  "weight": 65.432,
+  "address": {
+    "street": "Large Avenue",
+    "number": 123,
+    "complement": null
+  },
+  "game_score": {
+    "balance_winnings_losses": -12,
+    "balance_points": -1234.56
+  }
+}

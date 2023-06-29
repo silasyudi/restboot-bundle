@@ -2,21 +2,17 @@
 
 namespace SilasYudi\RestBootBundle\Rest\Converter;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Serializer\SerializerInterface;
+use JMS\Serializer\SerializerInterface;
 use SilasYudi\RestBootBundle\Rest\ValueObject\ConverterContext;
-use SilasYudi\RestBootBundle\Serializer\DefaultFormat;
+use Symfony\Component\HttpFoundation\Request;
 
 abstract class AbstractConverter
 {
-
     protected SerializerInterface $serializer;
-    protected DefaultFormat $defaultFormat;
 
-    public function __construct(SerializerInterface $serializer, DefaultFormat $defaultFormat)
+    public function __construct(SerializerInterface $serializer)
     {
         $this->serializer = $serializer;
-        $this->defaultFormat = $defaultFormat;
     }
 
     final public function apply(Request $request, ConverterContext $context): void
@@ -24,13 +20,10 @@ abstract class AbstractConverter
         $entity = $this->serializer->deserialize(
             $this->getContent($request),
             $context->getEntityType(),
-            $this->getFormat($request),
-            ['disable_type_enforcement' => true]
+            'json'
         );
         $request->attributes->set($context->getEntityName(), $entity);
     }
 
     abstract protected function getContent(Request $request): string;
-
-    abstract protected function getFormat(Request $request): string;
 }

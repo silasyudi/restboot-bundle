@@ -3,6 +3,7 @@
 namespace SilasYudi\RestBootBundle\Tests\EventListener;
 
 use EmptyIterator;
+use SilasYudi\RestBootBundle\Tests\Util\Entity\Primitives;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;
@@ -27,20 +28,23 @@ abstract class RestListenerTest extends KernelTestCase
     /**
      * @dataProvider providers
      */
-    public function testScenarioArrayWithKeysAndDateTimeAndNotIssetSecondLevelObject(callable $controller): void
+    public function testScenarioPrimitivesArrayAndObjectsArray(callable $controller): void
     {
-        $request = $this->getRequest('ScenarioArrayWithKeysAndDateTimeAndNotIssetSecondLevelObject');
+        $request = $this->getRequest('ScenarioPrimitivesArrayAndObjectsArray');
         $this->runEvent($controller, $request);
 
         /** @var Person $person */
         $person = $request->get('person');
         $this->assertEquals('Silas', $person->getName());
+        $this->assertEquals(['Ninja', 'Mestre'], $person->getNicknames());
         $this->assertEquals(30, $person->getAge());
         $this->assertTrue($person->isMale());
-        $this->assertEquals('2000-01-01 12:34:56', $person->getBirtydate()->format('Y-m-d H:i:s'));
+        $this->assertEquals('2000-01-01 12:34:56', $person->getBirthdate()->format('Y-m-d H:i:s'));
         $this->assertEquals(65.432, $person->getWeight());
-        $this->assertEquals('99999-9999', $person->getPhones()['personal']);
-        $this->assertEquals('88888-8888', $person->getPhones()['work']);
+        $this->assertEquals('personal', $person->getPhones()[0]->getName());
+        $this->assertEquals('99999-9999', $person->getPhones()[0]->getNumber());
+        $this->assertEquals('work', $person->getPhones()[1]->getName());
+        $this->assertEquals('88888-8888', $person->getPhones()[1]->getNumber());
         $this->assertEquals(-12, $person->getGameScore()->getBalanceWinningsLosses());
         $this->assertEquals(-1234.56, $person->getGameScore()->getBalancePoints());
         $this->assertNull($person->getAddress());
@@ -49,9 +53,9 @@ abstract class RestListenerTest extends KernelTestCase
     /**
      * @dataProvider providers
      */
-    public function testScenarioArrayWithoutKeysAndSetSecondLevelObject(callable $controller): void
+    public function testScenarioSetSecondLevelObject(callable $controller): void
     {
-        $request = $this->getRequest('ScenarioArrayWithoutKeysAndSetSecondLevelObject');
+        $request = $this->getRequest('ScenarioSetSecondLevelObject');
         $this->runEvent($controller, $request);
 
         /** @var Person $person */
@@ -59,9 +63,8 @@ abstract class RestListenerTest extends KernelTestCase
         $this->assertEquals('Carol', $person->getName());
         $this->assertEquals(30, $person->getAge());
         $this->assertFalse($person->isMale());
-        $this->assertEquals('2000-01-01 12:34:56 -03:00', $person->getBirtydate()->format('Y-m-d H:i:s P'));
+        $this->assertEquals('2000-01-01 12:34:56', $person->getBirthdate()->format('Y-m-d H:i:s'));
         $this->assertEquals(65.432, $person->getWeight());
-        $this->assertEquals(['99999-9999', '88888-8888'], $person->getPhones());
         $this->assertEquals(-12, $person->getGameScore()->getBalanceWinningsLosses());
         $this->assertEquals(-1234.56, $person->getGameScore()->getBalancePoints());
 

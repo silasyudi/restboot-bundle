@@ -8,14 +8,6 @@ services:
     autowire: true
     autoconfigure: true
 
-  SilasYudi\RestBootBundle\Serializer\DefaultFormat:
-    arguments:
-      - '%restboot.rest.payload.format%'
-
-  SilasYudi\RestBootBundle\Serializer\AcceptedFormats:
-    arguments:
-      - '%restboot.rest.payload.accepted.formats%'
-
   SilasYudi\RestBootBundle\Rest\Converter\BodyConverter:
     tags: [ name: 'restboot.rest.converter' ]
 
@@ -27,3 +19,8 @@ services:
     tags:
       - { name: 'kernel.event_listener', event: 'kernel.controller', method: 'onKernelController', priority: '%restboot.rest.priority.controller%' }
     public: true
+
+  JMS\Serializer\SerializerBuilder:
+
+  JMS\Serializer\SerializerInterface:
+    factory: ['@JMS\Serializer\SerializerBuilder', 'build']

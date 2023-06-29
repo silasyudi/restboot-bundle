@@ -17,8 +17,8 @@ respectivamente, em objetos nos métodos dos controladores.
 O *listener* SilasYudi\RestBootBundle\EventListener\RestListener verifica a presença das anotações
 @Body ou @Query nos métodos dos controladores nas rotas acionadas. 
 
-Se possuir, é realizada a conversão do conteúdo para objeto através do [SerializerInterface](https://symfony.com/doc/current/components/serializer.html)
-do Symfony. Se essa anotação for @Body, é utilizado o conteúdo do *body* da requisição para a conversão. Se a anotação
+Se possuir, é realizada a conversão do conteúdo para objeto através do [SerializerInterface](https://jmsyst.com/libs/serializer)
+do JMS. Se essa anotação for @Body, é utilizado o conteúdo do *body* da requisição para a conversão. Se a anotação
 for @Query, é utilizado a *query string* da URL da requisição para conversão.
 
 ## Uso
@@ -27,24 +27,8 @@ for @Query, é utilizado a *query string* da URL da requisição para conversão
 
 #### Requisitos 
 
-Para converter um *payload* de uma requisição POST, PUT, PATCH ou DELETE, este deve ser enviada no *body* da requisição, 
-em [formato suportado](https://symfony.com/doc/current/serializer.html#adding-normalizers-and-encoders) pelo
-SerializerInterface do Symfony (como por exemplo, JSON ou XML).
-
-#### Content-type
-
-É importante que no cabeçalho da requisição seja enviado o *content-type* apropriado. Na falta desta informação ou
-se o *content-type* não for um formato válido para serialização, a aplicação utilizará o formato JSON como padrão. 
-
-Você pode alterar o content-type padrão e os formatos aceitos para serialização nas configurações do Symfony, da seguinte forma:
-
-```yaml
-parameters:
-  restboot.rest.payload.format: 'xml' #alterando para XML
-  restboot.rest.payload.accepted.formats: ['json', 'xml']
-```
-
-Observe que aqui não se usa o media-type, mas sim o nome do formato.
+Para converter um *payload* de uma requisição POST, PUT, PATCH ou DELETE, este deve ser enviada no *body* da requisição
+em formato JSON.
 
 #### Uso da anotação no controlador
 
@@ -128,9 +112,10 @@ Se você fez configurações específicas para o SerializerInterface, o seu obje
 - Tipos *boolean* DEVEM:
   - ter o valor *true* representado como: booleano *true*, inteiro ou decimal diferente de 0, ou string diferente de string vazia ou string "0".
   - ter o valor *false* representado como: booleano *false*, inteiro ou decimal igual a 0, ou string igual string vazia ou string "0".
-- Datas DEVEM ser representadas no formato RFC3339 (Y-m-d\TH:i:sP)
+- Datas DEVEM possuir uma anotação `@JMS\Serializer\Annotation\Type` para especificar o formato (consulte a [documentação](https://jmsyst.com/libs/serializer/master/reference/annotations#type)).
+- Arrays DEVEM possuir uma anotação `@JMS\Serializer\Annotation\Type` para especificar o tipo (consulte a [documentação](https://jmsyst.com/libs/serializer/master/reference/annotations#type)).
 
-Para mais informações, consulte a documentação do [Serializer Component](https://symfony.com/doc/current/components/serializer.html).
+Para mais informações, consulte a documentação do [Serializer](https://jmsyst.com/libs/serializer).
 
 ## Prioridade do RestListener
 

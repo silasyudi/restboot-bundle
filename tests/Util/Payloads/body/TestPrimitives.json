@@ -1,0 +1,19 @@
+{
+  "bool_string_vazia": "",
+  "bool_string_zero": "0",
+  "bool_string_inteiro_positivo": "1",
+  "bool_string_inteiro_negativo": "-1",
+  "bool_string_nao_vazia": "a",
+  "string_vazia": "",
+  "string_nao_vazia": "a",
+  "nulo": null,
+  "positivo": 1,
+  "negativo": -1,
+  "string_positivo": "1",
+  "string_negativo": "-1",
+  "float_positivo": 1.2,
+  "float_negativo": -1.2,
+  "float_string_positivo": "1.2",
+  "float_string_negativo": "-1.2",
+  "array_vazio": []
+}
